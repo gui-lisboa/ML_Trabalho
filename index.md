@@ -1,0 +1,3 @@
+# Machine Learning - Trabalho Prático
+
+TBD: escrever uma intro curta com nomes, grr, etc...
