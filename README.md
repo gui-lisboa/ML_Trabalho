@@ -1,8 +1,8 @@
 # Machine Learning - Trabalho Prático
 
-## Disponível em: TBD
+## Disponível em: <https://gui-lisboa.github.io/ML_Trabalho/>
 
-## Rodar local:
+## Rodar local
 
 - ```git clone https://github.com/gui-lisboa/ML_Trabalho.git```
 - ```pip install -r requirements.txt``` (preferência por usar virtualenv)
@@ -12,6 +12,6 @@
 
 ## Autores
 
--  Felipe Kowalski
--  Felipe Queluz
--  Guilherme Lisboa
+- Felipe Kowalski
+- Felipe Queluz
+- Guilherme Lisboa
