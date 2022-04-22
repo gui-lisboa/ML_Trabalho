@@ -198,7 +198,15 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="toctree-wrapper compound">
 <span id="document-sobre_o_dataset"></span><div class="tex2jax_ignore mathjax_ignore section" id="dataset-wild-blueberry-yield-prediction">
 <h2>Dataset: Wild Blueberry Yield Prediction<a class="headerlink" href="#dataset-wild-blueberry-yield-prediction" title="Link permanente para este título">¶</a></h2>
-<p>Falar sobre o dataset, oq é cada coluna etc etc…</p>
+<div class="section" id="descricao">
+<h3>Descrição<a class="headerlink" href="#descricao" title="Link permanente para este título">¶</a></h3>
+<p>Conjunto de dados gerado a partir de simulações de polinização de mirtilos utilizando a plataforma GAMMA (<a class="reference external" href="https://gama-platform.org/">https://gama-platform.org/</a>). Os fatores experimentais utilizados são:</p>
+<ul class="simple">
+<li><p>Tamanho médio dos mirtilos clonados</p></li>
+<li><p>Proporção de abelhas de cada espécie: Honeybee, Bumbles, Andrena e Osmia</p></li>
+<li><p>Informações do tempo: temepratura, precipitação e velocidade do vento</p></li>
+</ul>
+<p>O objetivo do modelo é ser capaz de prever a colheita de uma área polinizada.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">carrega_dataset</span>
@@ -486,21 +494,90 @@ const thebe_selector_output = ".output, .cell_output"
 </div></div></div>
 </div>
 </div>
+<div class="section" id="variaveis-explicativas">
+<h3>Variáveis explicativas<a class="headerlink" href="#variaveis-explicativas" title="Link permanente para este título">¶</a></h3>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Variável</p></th>
+<th class="text-align:center head"><p>Unidade</p></th>
+<th class="text-align:left head"><p>Descrição</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>Clonesize</p></td>
+<td class="text-align:center"><p>m2</p></td>
+<td class="text-align:left"><p>The average blueberry clone size in the field</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Honeybee</p></td>
+<td class="text-align:center"><p>bees/m2/min</p></td>
+<td class="text-align:left"><p>Honeybee density in the field</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Bumbles</p></td>
+<td class="text-align:center"><p>bees/m2/min</p></td>
+<td class="text-align:left"><p>Bumblebee density in the field</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>Andrena</p></td>
+<td class="text-align:center"><p>bees/m2/min</p></td>
+<td class="text-align:left"><p>Andrena bee density in the field</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>Osmia</p></td>
+<td class="text-align:center"><p>bees/m2/min</p></td>
+<td class="text-align:left"><p>Osmia bee density in the field</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>MaxOfUpperTRange</p></td>
+<td class="text-align:center"><p>℃</p></td>
+<td class="text-align:left"><p>The highest record of the upper band daily air temperature during the bloom season</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>MinOfUpperTRange</p></td>
+<td class="text-align:center"><p>℃</p></td>
+<td class="text-align:left"><p>The lowest record of the upper band daily air temperature</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>AverageOfUpperTRange</p></td>
+<td class="text-align:center"><p>℃</p></td>
+<td class="text-align:left"><p>The average of the upper band daily air temperature</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>MaxOfLowerTRange</p></td>
+<td class="text-align:center"><p>℃</p></td>
+<td class="text-align:left"><p>The highest record of the lower band daily air temperature</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>MinOfLowerTRange</p></td>
+<td class="text-align:center"><p>℃</p></td>
+<td class="text-align:left"><p>The lowest record of the lower band daily air temperature</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>AverageOfLowerTRange</p></td>
+<td class="text-align:center"><p>℃</p></td>
+<td class="text-align:left"><p>The average of the lower band daily air temperature</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>RainingDays</p></td>
+<td class="text-align:center"><p>Day</p></td>
+<td class="text-align:left"><p>The total number of days during the bloom season, each of which has precipitation larger than zero</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>AverageRainingDays</p></td>
+<td class="text-align:center"><p>Day</p></td>
+<td class="text-align:left"><p>The average of raining days of the entire bloom season</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <span id="document-analise_exploratoria"></span><div class="tex2jax_ignore mathjax_ignore section" id="analise-exploratoria">
 <h2>Análise Exploratória<a class="headerlink" href="#analise-exploratoria" title="Link permanente para este título">¶</a></h2>
-<p>gráficos pra ajudar a entender o dataset antes de aplicar os rf e rf com xgboost….</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">carrega_dataset</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="s1">&#39;notebook&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">]})</span>
 
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">carrega_dataset</span><span class="p">()</span>
 
-<span class="n">dataset</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;yield&#39;</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/analise_exploratoria_2_0.png" src="_images/analise_exploratoria_2_0.png" />
+<img alt="_images/analise_exploratoria_1_0.png" src="_images/analise_exploratoria_1_0.png" />
 </div>
 </div>
 </div>
