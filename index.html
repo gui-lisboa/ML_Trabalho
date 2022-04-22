@@ -559,6 +559,16 @@ const thebe_selector_output = ".output, .cell_output"
 </tbody>
 </table>
 </div>
+<div class="section" id="observacoes">
+<h3>Observações<a class="headerlink" href="#observacoes" title="Link permanente para este título">¶</a></h3>
+<ul class="simple">
+<li><p>A variável Clonesize (m²) indica a área em que rede de rizomas (ramos subterraneos) se espalhou. O conjunto de arbustos ligados por esta rede é o chamado clone.</p></li>
+</ul>
+<div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="_images/clone.jfif"><img alt="_images/clone.jfif" src="_images/clone.jfif" style="width: 75%; height: 350px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Clone de mirtilo selvagem</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
 </div>
 <span id="document-analise_exploratoria"></span><div class="tex2jax_ignore mathjax_ignore section" id="analise-exploratoria">
 <h2>Análise Exploratória<a class="headerlink" href="#analise-exploratoria" title="Link permanente para este título">¶</a></h2>
@@ -566,18 +576,57 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">carrega_dataset</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="s1">&#39;notebook&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="s2">&quot;notebook&quot;</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">]})</span>
 
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">carrega_dataset</span><span class="p">()</span>
-
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;yield&#39;</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="histograma-de-yield">
+<h3>Histograma de Yield<a class="headerlink" href="#histograma-de-yield" title="Link permanente para este título">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;yield&#39;</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/analise_exploratoria_1_0.png" src="_images/analise_exploratoria_1_0.png" />
+<img alt="_images/analise_exploratoria_3_0.png" src="_images/analise_exploratoria_3_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="clonesize-x-abelha-dominante-x-temperatura-media-x-yield">
+<h3>Clonesize x Abelha Dominante x Temperatura Média x Yield<a class="headerlink" href="#clonesize-x-abelha-dominante-x-temperatura-media-x-yield" title="Link permanente para este título">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colunas_abelhas</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;honeybee&quot;</span><span class="p">,</span> <span class="s2">&quot;bumbles&quot;</span><span class="p">,</span> <span class="s2">&quot;andrena&quot;</span><span class="p">,</span> <span class="s2">&quot;osmia&quot;</span><span class="p">]</span>
+<span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;abelha_dominante&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="n">colunas_abelhas</span><span class="p">]</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;amplitude_termica_medias&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">dataset</span><span class="o">.</span><span class="n">AverageOfUpperTRange</span> <span class="o">-</span> <span class="n">dataset</span><span class="o">.</span><span class="n">AverageOfLowerTRange</span>
+<span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;clonesize&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;yield&quot;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;abelha_dominante&quot;</span><span class="p">,</span>
+    <span class="n">size</span><span class="o">=</span><span class="s2">&quot;amplitude_termica_medias&quot;</span><span class="p">,</span>
+    <span class="n">sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;center left&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+
+<span class="n">g</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/analise_exploratoria_5_0.png" src="_images/analise_exploratoria_5_0.png" />
+</div>
 </div>
 </div>
 </div>
