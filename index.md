@@ -1,3 +1,7 @@
 # Machine Learning - Trabalho Prático
 
-TBD: escrever uma intro curta com nomes, grr, etc...
+**Alunos:**
+
+- Felipe Heron Queluz: GRR20170400
+- Felipe Kowalski: GRR2017????
+- Guilherme Lisboa: GRR20170414
