@@ -7,3 +7,4 @@ sections:
 - file: sobre_o_dataset
 - file: analise_exploratoria
 - file: xgboost
+- file: random_forest
